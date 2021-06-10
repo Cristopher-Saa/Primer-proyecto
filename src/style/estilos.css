@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*ESTILOS MENU*/
+.menu{
+    background: rgba(232, 235, 59, 0.733);
+    color: black;
+    border: 1px solid #000;
+    border-radius: 0px 0px 8px 8px;
+}
+.panelMenu{
+    width: 100%;
+    height: 8vh;
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+}
+ul li{
+
+    display: inline;
+    margin: 10px;
+}
+a{
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a:hover{
+    font-size: 40px;
+    color: rgb(0, 247, 255);
+}
+/*ESTILOS CONTENEDOR*/
+.contenedor{
+    width: 100%;
+    display: flex;
+}
+.CajaParrafo{
+    width: 30%;
+    border:3px solid #000;
+    background: rgba(110, 248, 225, 0.733);
+    display: inline-block;
+}
+.CajaParrafo h1{
+    text-align: center;
+    color: rgba(255, 166, 1, 0.918);
+    font-size: 50px;
+   
+}
+
+.CajaParrafo p{
+    text-align:justify;
+    color: rgba(0, 0, 0, 0.918);
+    font-size: 20px;
+    margin: 15px;
+
+}
+
+.CajaImagen{
+    width: 40%;
+    text-align:center;
+    display: inline-block;
+    margin: 10px;
+}
+.CajaImagen img{
+    width: 100%;
+}
+.CajaImagen p{
+    text-align:center;
+    color: rgba(0, 0, 0, 0.918);
+    font-size: 30px;
+    margin: 15px;
+
+}
+
+.CajaFormulario{
+    width: 40%;
+    background: rgba(59, 235, 112, 0.733);
+    display: inline-block;
+    border:3px solid #000 ;
+    margin: 10px;
+}
+.CajaFormulario label{
+    text-align:justify;
+    color: rgba(0, 0, 0, 0.918);
+    font-size: 20px;
+    margin: 15px;
+}
+
+.CajaFormulario input{
+    text-align:justify;
+    color: rgba(0, 0, 0, 0.918);
+    font-size: 18px;
+    margin: 15px;
+}
+
+.CajaFormulario input[Type='Button']{
+    width: 20%;
+    text-align:center;
+    margin: 10px;
+    display:block;
+    margin-left: 40%;
+
+}
+.CajaFormulario h1{
+    text-align: center;
+    color: rgba(0, 172, 0, 0.918);
+    font-size: 40px;
+}
