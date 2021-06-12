@@ -1,11 +1,12 @@
 console.log('Hola JavaScript');// equivalente en java a un System.out.println('mensaje');
 //alert('Hola JavaScript');// mensaje de alerta predefinido
-
+//import { formulario } from '../JavaScript/GenerarEtiqueta';
+var generadoretiqueta
     const padre=document.querySelector('.contenedor');// con esta linea estamos llamando a una etiqueta por su ID
     const lista=document.getElementById('lista');
     //let etiqueta=document.querySelector('.etiqueta');
     let etiqueta='';
-    let clase='titulo', NombreTitulo=null; ContenidoParrafo=null; rutaimagen=null; ContenidoDescripcion=null; NombreLabel=null; NombreLabel1=null; NombreLabel2=null; NombreTituloForm=null; 
+    let clase='titulo', NombreTitulo=null; ContenidoParrafo=null; rutaimagen=null; ContenidoDescripcion=null; NombreLabel=[]; /*NombreLabel1=null; NombreLabel2=null;*/ NombreTituloForm=null; 
     lista.addEventListener('mousedown',designar=(e)=>{
         //const referencia=document.getElementsByTagName(e.target.id);
         etiqueta=document.getElementById(e.target.id);
@@ -15,9 +16,10 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             rutaimagen='../src/image/Alerta.jpg';
             ContenidoDescripcion='NO ENTRES O ERES FEO';
             NombreTituloForm='FORMULARIO 1';
-            NombreLabel='Nombre';
-            NombreLabel1='Apellido';
-            NombreLabel2='Apodo';
+            //NombreLabel='Nombre';
+            //NombreLabel1='Apellido';
+            //NombreLabel2='Apodo';
+            NombreLabel=['Nombre','Apellido','Apodo'];
 
         } else if(etiqueta.id==='mostrar1'){
             NombreTitulo='MI PRIMER BLOG';
@@ -25,9 +27,10 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             rutaimagen='../src/image/etap.jpeg';
             ContenidoDescripcion='Empresa ETAP';
             NombreTituloForm='FORMULARIO 2';
-            NombreLabel='Deporte';
+          /*  NombreLabel='Deporte';
             NombreLabel1='Color';
-            NombreLabel2='Numero';
+            NombreLabel2='Numero';*/
+            NombreLabel=['Deporte','Color','Numero'];
 
         } else if(etiqueta.id==='mostrar2'){
             NombreTitulo='MI SEGUNDO BLOG';
@@ -35,9 +38,10 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             rutaimagen='../src/image/logo3.png';
             ContenidoDescripcion='Logo Empresa Tarea';
             NombreTituloForm='FORMULARIO 3';
-            NombreLabel='Edad';
+           /* NombreLabel='Edad';
             NombreLabel1='Celular';
-            NombreLabel2='Comida';
+            NombreLabel2='Comida';*/
+            NombreLabel=['Edad','Celular','Comida'];
 
         } else if(etiqueta.id==='mostrar3'){
             NombreTitulo='MI TERCER BLOG';
@@ -45,9 +49,10 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             rutaimagen='../src/image/pmdt.jpeg';
             ContenidoDescripcion='PMDT Logo sacado de internet';
             NombreTituloForm='FORMULARIO 4';
-            NombreLabel='Profesion';
+            /*NombreLabel='Profesion';
             NombreLabel1='Juego';
-            NombreLabel2='Direccion';
+            NombreLabel2='Direccion';*/
+            NombreLabel=['Profesion','Juego','Direccion'];
 
         }
             //if(document.querySelector('.titulo')){
@@ -58,12 +63,15 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
                padre.removeChild(document.querySelector('.CajaImagen'));
                padre.removeChild(document.querySelector('.CajaParrafo'));
                padre.removeChild(document.querySelector('.CajaFormulario'));
+
             }
+            
+            var ElementoCajaDeFormulario=formulario(NombreTituloForm,NombreLabel);
             /*if(document.querySelector('.parrafo',)){
                 padre.removeChild(document.querySelector('.parrafo')); 
             }*/
 
-            var ElementoCajaDeFormulario=document.createElement('div');
+        /*    var ElementoCajaDeFormulario=document.createElement('div');
             ElementoCajaDeFormulario.setAttribute('class','CajaFormulario');
 
             var ElementoLabel=document.createElement('label');// creamos un elemento
@@ -118,6 +126,7 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             ElementoCajaDeFormulario.appendChild(ElementoLabel2);
             ElementoCajaDeFormulario.appendChild(input2);
             ElementoCajaDeFormulario.appendChild(input4);
+*/
 
             var ElementoCajaDeImagen=document.createElement('div');
             ElementoCajaDeImagen.setAttribute('class','CajaImagen');
@@ -151,8 +160,36 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             padre.appendChild(ElementoCajaDeFormulario);
     });
 
+    function formulario(titulo,labels){
+        var CajaFormulario=document.createElement('div');
+        CajaFormulario.setAttribute('class','CajaFormulario');
+        var Formularios=document.createElement('form');
+        Formularios.setAttribute('class','formulario');
+        var TituloForm=document.createElement('h1');
+        TituloForm.setAttribute('class','TituloFormulario')
+        var NombreTituloForm=document.createTextNode(titulo);
+        TituloForm.appendChild(NombreTituloForm);
+        Formularios.appendChild(TituloForm);
+        var input=null,labelInfo=null, contenidolabel=null;
+        labels.map((cd,i)=>{
+        input=document.createElement('input');
+        input.setAttribute('id',cd);
+        input.setAttribute('placeholder',cd);
+        input.setAttribute('key',i);
+        labelInfo=document.createElement('label');
+        labelInfo.setAttribute('for',cd);
+        contenidolabel=document.createTextNode(cd);
+        labelInfo.appendChild(contenidolabel);
+        Formularios.appendChild(labelInfo);
+        Formularios.appendChild(input);
+        input=null,labelInfo=null;
+        })
+        CajaFormulario.appendChild(Formularios);
+        return(CajaFormulario);
+    }
     
- 
+ /*
 inicial=()=>{
    // pintar();
-} // esta funcion es la que iniciara todo mi codigo JavaScript
+} // esta funcion es la que iniciara todo mi codigo JavaScript*/
+
