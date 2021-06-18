@@ -1,13 +1,18 @@
+import GenerarEtiqueta from '../JavaScript/GenerarEtiqueta.js';
+//import opciones from '../JavaScript/OpcionesMenu.js';
+
 console.log('Hola JavaScript');// equivalente en java a un System.out.println('mensaje');
 //alert('Hola JavaScript');// mensaje de alerta predefinido
-//import { formulario } from '../JavaScript/GenerarEtiqueta';
-var generadoretiqueta
+
+//var generadoretiqueta
     const padre=document.querySelector('.contenedor');// con esta linea estamos llamando a una etiqueta por su ID
-    const lista=document.getElementById('lista');
+    GenerarEtiqueta.CrearMenu();
+    const lista=document.getElementById('lista');//importamos las opciones del meni en una constante
     //let etiqueta=document.querySelector('.etiqueta');
+
     let etiqueta='';
-    let clase='titulo', NombreTitulo=null; ContenidoParrafo=null; rutaimagen=null; ContenidoDescripcion=null; NombreLabel=[]; /*NombreLabel1=null; NombreLabel2=null;*/ NombreTituloForm=null; 
-    lista.addEventListener('mousedown',designar=(e)=>{
+    let clase='titulo', NombreTitulo=null, ContenidoParrafo=null, rutaimagen=null, ContenidoDescripcion=null, NombreLabel=[], /*NombreLabel1=null, NombreLabel2=null,*/ NombreTituloForm=null; 
+    lista.addEventListener('mousedown',(e)=>{
         //const referencia=document.getElementsByTagName(e.target.id);
         etiqueta=document.getElementById(e.target.id);
         if(etiqueta.id==='mostrar'){
@@ -66,7 +71,9 @@ var generadoretiqueta
 
             }
             
-            var ElementoCajaDeFormulario=formulario(NombreTituloForm,NombreLabel);
+            var NewFormulario=GenerarEtiqueta.formulario(NombreTituloForm,NombreLabel);
+            var NewParrafo=GenerarEtiqueta.CajasParrafos(NombreTitulo,ContenidoParrafo);
+            var NewImagen=GenerarEtiqueta.CajasImagenes(rutaimagen,ContenidoDescripcion);
             /*if(document.querySelector('.parrafo',)){
                 padre.removeChild(document.querySelector('.parrafo')); 
             }*/
@@ -128,7 +135,7 @@ var generadoretiqueta
             ElementoCajaDeFormulario.appendChild(input4);
 */
 
-            var ElementoCajaDeImagen=document.createElement('div');
+            /*var ElementoCajaDeImagen=document.createElement('div');
             ElementoCajaDeImagen.setAttribute('class','CajaImagen');
             var Imagen=document.createElement('img');
             Imagen.setAttribute('src',rutaimagen);
@@ -138,9 +145,9 @@ var generadoretiqueta
             var contenido3=document.createTextNode(ContenidoDescripcion);
             ParrafoDescripcion.appendChild(contenido3);
             ElementoCajaDeImagen.appendChild(ParrafoDescripcion);
+*/
 
-
-            var ElementoCajaDeParrafo=document.createElement('div');
+          /*  var ElementoCajaDeParrafo=document.createElement('div');
             ElementoCajaDeParrafo.setAttribute('class','CajaParrafo');
             var ElementoTitulo=document.createElement('h1');// creamos un elemento
             ElementoTitulo.setAttribute('class',clase);
@@ -153,14 +160,17 @@ var generadoretiqueta
             var contenido2=document.createTextNode(ContenidoParrafo);
 
             parrafo.appendChild(contenido2);
-            ElementoCajaDeParrafo.appendChild(parrafo);
+            ElementoCajaDeParrafo.appendChild(parrafo);*/
             //padre.appendChild(parrafo);
-            padre.appendChild(ElementoCajaDeParrafo);
-            padre.appendChild(ElementoCajaDeImagen);
-            padre.appendChild(ElementoCajaDeFormulario);
+            //padre.appendChild(ElementoCajaDeParrafo);
+            padre.appendChild(NewParrafo);
+            //padre.appendChild(ElementoCajaDeImagen);
+            padre.appendChild(NewImagen);
+            padre.appendChild(NewFormulario);
+            
     });
 
-    function formulario(titulo,labels){
+/*    function formulario(titulo,labels){
         var CajaFormulario=document.createElement('div');
         CajaFormulario.setAttribute('class','CajaFormulario');
         var Formularios=document.createElement('form');
@@ -186,7 +196,7 @@ var generadoretiqueta
         })
         CajaFormulario.appendChild(Formularios);
         return(CajaFormulario);
-    }
+    }*/
     
  /*
 inicial=()=>{
