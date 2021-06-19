@@ -4,28 +4,51 @@ import OpcionesMenu from '../JavaScript/OpcionesMenu.js';
     var CajaFormulario=document.createElement('div');
     CajaFormulario.setAttribute('class','CajaFormulario');
     var Formularios=document.createElement('form');
-    Formularios.setAttribute('class','formulario');
+    Formularios.setAttribute('class','Formulario');
     var TituloForm=document.createElement('h1');
     TituloForm.setAttribute('class','TituloFormulario');
     var NombreTituloForm=document.createTextNode(titulo);
     TituloForm.appendChild(NombreTituloForm);
-    var input=null,labelInfo=null,contenidolabel=null;
+    Formularios.appendChild(TituloForm);
+    var input=null,labelInfo=null,contenidolabel=null,CajaInputs=null;
     labels.map((cd,i)=>{
+        CajaInputs=document.createElement('div');
+        CajaInputs.setAttribute('class','input-group');
         input=document.createElement('input');
         input.setAttribute('id',cd);
-        input.setAttribute('placeholder',cd)
+        //input.setAttribute('placeholder',cd)
         input.setAttribute('key',i);
         labelInfo=document.createElement('label');
         labelInfo.setAttribute('for',cd);
         contenidolabel=document.createTextNode(cd);
         labelInfo.appendChild(contenidolabel);
-        Formularios.appendChild(labelInfo);
-        Formularios.appendChild(input);
+        CajaInputs.appendChild(labelInfo);
+        CajaInputs.appendChild(input);
+        Formularios.appendChild(CajaInputs);
+        CrearEventosInputs(input,'focusin','focusout');
         input=null,labelInfo=null;
     })
+    var NewButton=document.createElement('input');
+    NewButton.setAttribute('type','button');
+    NewButton.setAttribute('value','Guardar');
+    Formularios.appendChild(NewButton);
     CajaFormulario.appendChild(Formularios);
     return(CajaFormulario);
 }
+
+function CrearEventosInputs(elemento,evento,evento2){
+    elemento.addEventListener(evento,(e)=>{
+        var Evlabel=document.querySelector('label[for='+e.target.id+']');
+        Evlabel.setAttribute('class','active');
+    });
+    elemento.addEventListener(evento2,(e)=>{
+        var Evlabel=document.querySelector('label[for='+e.target.id+']');
+        if(elemento.value!=0){}
+        else{Evlabel.classList.remove('active');
+        }
+    });
+
+    }
 const CajasParrafos=(titulo,ContenidoParrafo)=>{
     var ElementoCajaDeParrafo=document.createElement('div');
             ElementoCajaDeParrafo.setAttribute('class','CajaParrafo');

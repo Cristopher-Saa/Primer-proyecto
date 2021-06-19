@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background: rgba(0, 0, 0, 0.603);
+}
 /*ESTILOS MENU*/
 .menu{
     background: rgba(232, 235, 59, 0.733);
@@ -32,7 +35,7 @@ a:hover{
 }
 /*ESTILOS CONTENEDOR*/
 .contenedor{
-    width: 100%;
+    width: 98%;
     display: flex;
 }
 .CajaParrafo{
@@ -40,7 +43,8 @@ a:hover{
     border:3px solid #000;
     background: rgba(110, 248, 225, 0.733);
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
+    
 }
 .CajaParrafo h1{
     text-align: center;
@@ -58,7 +62,7 @@ a:hover{
 }
 
 .CajaImagen{
-    width: 40%;
+    width: 50%;
     text-align:center;
     display: inline-block;
     margin: 10px;
@@ -69,9 +73,9 @@ a:hover{
 }
 .CajaImagen p{
     text-align:center;
-    color: rgba(0, 0, 0, 0.918);
+    color: rgba(255, 255, 255, 0.918);
     font-size: 30px;
-    margin: 15px;
+    margin: 5px;
 
 }
 
@@ -79,43 +83,77 @@ a:hover{
     width: 40%;
     background: rgba(59, 235, 112, 0.733);
     display: inline-block;
-    border:3px solid #000 ;
-    margin: 10px;
+    margin: 5px;
 }
-.CajaFormulario label{
+.Formulario{
+    width: 100%;
+    height: 85vh;
+    background: rgba(59, 235, 112, 0.733);;
+    display: inline-block;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 10px;
+
+}
+.Formulario label{
     text-align:justify;
     color: rgba(0, 0, 0, 0.918);
+    position: absolute;
+    top: 26px;
+    left: 0px;
     font-size: 20px;
     font-style: italic;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    border-bottom: #000;
+    line-height: 20px;
+    margin-left: 16px;
+    transition: all .3s ease;
     
+}
+.Formulario .active{
+    top: -12px;
+    font-size: 20px;
+    line-height: 18px;
+    color: #000;
 
 }
 
-.CajaFormulario input{
+.Formulario input{
+    display: block;
     text-align:justify;
+    height: 4vh;
+    margin: 2px;
+    background: none;
     color: rgb(117, 0, 250);
     font-size: 18px;
-    margin: 15px;
-    background-color:rgba(59, 235, 112, 0.733);
-    border: #000;
-    border-radius: 10px;
-    
+    width: 80%;
+    outline: none;
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+.Formulario input:focus, input:active{
+    outline: none;
+    border-bottom: 2px solid orangered;
 }
 
-.CajaFormulario input[Type='Button']{
-    width: 20%;
-    text-align:center;
-    margin: 10px;
-    display:block;
-    margin-left: 40%;
-    border-radius: 8px;
-    
-}
-.CajaFormulario h1{
+.Formulario input[type='button']{
+    width: 80%;
     text-align: center;
-    color: rgba(0, 172, 0, 0.918);
-    font-size: 40px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background: rgb(32, 231, 238);
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+.Formulario .TituloFormulario{
+    text-align: center;
+    color: rgba(0, 82, 177, 0.918);
+    font-size: 30px;
+}
+
+.input-group{
+    position: relative;
+    margin-bottom: 32px;
+
 }

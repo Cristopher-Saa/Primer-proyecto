@@ -1,6 +1,5 @@
 import GenerarEtiqueta from '../JavaScript/GenerarEtiqueta.js';
-//import opciones from '../JavaScript/OpcionesMenu.js';
-
+import ContenidoMenu from '../JavaScript/ContenidoMenu.js';
 console.log('Hola JavaScript');// equivalente en java a un System.out.println('mensaje');
 //alert('Hola JavaScript');// mensaje de alerta predefinido
 
@@ -12,10 +11,25 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
 
     let etiqueta='';
     let clase='titulo', NombreTitulo=null, ContenidoParrafo=null, rutaimagen=null, ContenidoDescripcion=null, NombreLabel=[], /*NombreLabel1=null, NombreLabel2=null,*/ NombreTituloForm=null; 
+    var ElementosContenido=ContenidoMenu.opciones;
+    console.log(ElementosContenido);
     lista.addEventListener('mousedown',(e)=>{
         //const referencia=document.getElementsByTagName(e.target.id);
         etiqueta=document.getElementById(e.target.id);
-        if(etiqueta.id==='mostrar'){
+        var length=Object.keys(ElementosContenido).length;
+        for(let i=1;i<=length;i++){
+            if(etiqueta.id===ElementosContenido[i].id){
+                NombreTitulo=ElementosContenido[i].NombreTitulo;
+                ContenidoParrafo=ElementosContenido[i].ContenidoParrafo;
+                rutaimagen=ElementosContenido[i].rutaimagen;
+                ContenidoDescripcion=ElementosContenido[i].ContenidoDescripcion;
+                NombreTituloForm=ElementosContenido[i].NombreTituloForm;
+                NombreLabel=ElementosContenido[i].NombreLabel;
+            }
+
+        }
+       
+       /* if(etiqueta.id==='mostrar'){
             NombreTitulo='Se selecciono la opcion Ver alerta';
             ContenidoParrafo='ALERTA';
             rutaimagen='../src/image/Alerta.jpg';
@@ -35,7 +49,7 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
           /*  NombreLabel='Deporte';
             NombreLabel1='Color';
             NombreLabel2='Numero';*/
-            NombreLabel=['Deporte','Color','Numero'];
+        /*    NombreLabel=['Deporte','Color','Numero'];
 
         } else if(etiqueta.id==='mostrar2'){
             NombreTitulo='MI SEGUNDO BLOG';
@@ -46,7 +60,7 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
            /* NombreLabel='Edad';
             NombreLabel1='Celular';
             NombreLabel2='Comida';*/
-            NombreLabel=['Edad','Celular','Comida'];
+         /*   NombreLabel=['Edad','Celular','Comida'];
 
         } else if(etiqueta.id==='mostrar3'){
             NombreTitulo='MI TERCER BLOG';
@@ -57,9 +71,9 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             /*NombreLabel='Profesion';
             NombreLabel1='Juego';
             NombreLabel2='Direccion';*/
-            NombreLabel=['Profesion','Juego','Direccion'];
+         /*   NombreLabel=['Profesion','Juego','Direccion'];
 
-        }
+        }*/
             //if(document.querySelector('.titulo')){
             if(document.querySelector('.'+clase) || clase==!null){
                // padre.removeChild(document.querySelector('.titulo'));
