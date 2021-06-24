@@ -47,5 +47,10 @@ const opciones={
         NombreLabel2='Direccion';*/
         NombreLabel:['Profesion','Juego','Direccion'],
     },
+    5:{
+        id:'MostrarTabla',
+        NombreLabel:['TituloTabla','Filas','Columnas'],
+        NombreTituloForm:'Generar Tablas',
+    }
 }
 export default {opciones};

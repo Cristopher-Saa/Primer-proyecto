@@ -19,6 +19,12 @@ const opciones={
         href:'#',
         id:'mostrar3',    
     },
+    5:{
+        Titulo:'Tablas',
+        href:'#',
+        id:'MostrarTabla'
+
+    },
 
 }
 export default {opciones};

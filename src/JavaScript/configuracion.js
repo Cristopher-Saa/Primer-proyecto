@@ -1,22 +1,35 @@
 import GenerarEtiqueta from '../JavaScript/GenerarEtiqueta.js';
-import ContenidoMenu from '../JavaScript/ContenidoMenu.js';
+//import ContenidoMenu from '../JavaScript/ContenidoMenu.js';
+import views from '../JavaScript/views.js';
 console.log('Hola JavaScript');// equivalente en java a un System.out.println('mensaje');
 //alert('Hola JavaScript');// mensaje de alerta predefinido
 
 //var generadoretiqueta
-    const padre=document.querySelector('.contenedor');// con esta linea estamos llamando a una etiqueta por su ID
+    //const padre=document.querySelector('.contenedor');// con esta linea estamos llamando a una etiqueta por su ID
     GenerarEtiqueta.CrearMenu();
     const lista=document.getElementById('lista');//importamos las opciones del meni en una constante
     //let etiqueta=document.querySelector('.etiqueta');
 
     let etiqueta='';
-    let clase='titulo', NombreTitulo=null, ContenidoParrafo=null, rutaimagen=null, ContenidoDescripcion=null, NombreLabel=[], /*NombreLabel1=null, NombreLabel2=null,*/ NombreTituloForm=null; 
-    var ElementosContenido=ContenidoMenu.opciones;
-    console.log(ElementosContenido);
+    //let clase='titulo';//, NombreTitulo=null, ContenidoParrafo=null, rutaimagen=null, ContenidoDescripcion=null, NombreLabel=[], /*NombreLabel1=null, NombreLabel2=null,*/ NombreTituloForm=null; 
+    //var ElementosContenido=ContenidoMenu.opciones;
+    //console.log(ElementosContenido);
     lista.addEventListener('mousedown',(e)=>{
         //const referencia=document.getElementsByTagName(e.target.id);
         etiqueta=document.getElementById(e.target.id);
-        var length=Object.keys(ElementosContenido).length;
+        var view=new views();
+        if(etiqueta.id=='mostrar'){
+            view.setPantalla1(etiqueta.id);
+        }else if(etiqueta.id=='mostrar1'){
+            view.setPantalla2(etiqueta.id);
+        }else if(etiqueta.id=='mostrar2'){
+            view.setPantalla3(etiqueta.id);
+        }else if(etiqueta.id=='mostrar3'){
+            view.setPantalla1(etiqueta.id);
+        }else if(etiqueta.id=='MostrarTabla'){
+            view.setPantallaTabla(etiqueta.id);
+        }
+       /* var length=Object.keys(ElementosContenido).length;
         for(let i=1;i<=length;i++){
             if(etiqueta.id===ElementosContenido[i].id){
                 NombreTitulo=ElementosContenido[i].NombreTitulo;
@@ -27,7 +40,7 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
                 NombreLabel=ElementosContenido[i].NombreLabel;
             }
 
-        }
+        }*/
        
        /* if(etiqueta.id==='mostrar'){
             NombreTitulo='Se selecciono la opcion Ver alerta';
@@ -75,19 +88,19 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
 
         }*/
             //if(document.querySelector('.titulo')){
-            if(document.querySelector('.'+clase) || clase==!null){
+           // if(document.querySelector('.'+clase) || clase==!null){
                // padre.removeChild(document.querySelector('.titulo'));
               // padre.removeChild(document.querySelector('.'+clase));
               // padre.removeChild(document.querySelector('.parrafo'));
-               padre.removeChild(document.querySelector('.CajaImagen'));
-               padre.removeChild(document.querySelector('.CajaParrafo'));
-               padre.removeChild(document.querySelector('.CajaFormulario'));
+            //   padre.removeChild(document.querySelector('.CajaImagen'));
+           //    padre.removeChild(document.querySelector('.CajaParrafo'));
+           //    padre.removeChild(document.querySelector('.CajaFormulario'));
 
-            }
+        //   }
             
-            var NewFormulario=GenerarEtiqueta.formulario(NombreTituloForm,NombreLabel);
-            var NewParrafo=GenerarEtiqueta.CajasParrafos(NombreTitulo,ContenidoParrafo);
-            var NewImagen=GenerarEtiqueta.CajasImagenes(rutaimagen,ContenidoDescripcion);
+         //   var NewFormulario=GenerarEtiqueta.formulario(NombreTituloForm,NombreLabel);
+         //   var NewParrafo=GenerarEtiqueta.CajasParrafos(NombreTitulo,ContenidoParrafo);
+         //   var NewImagen=GenerarEtiqueta.CajasImagenes(rutaimagen,ContenidoDescripcion);
             /*if(document.querySelector('.parrafo',)){
                 padre.removeChild(document.querySelector('.parrafo')); 
             }*/
@@ -177,10 +190,10 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             ElementoCajaDeParrafo.appendChild(parrafo);*/
             //padre.appendChild(parrafo);
             //padre.appendChild(ElementoCajaDeParrafo);
-            padre.appendChild(NewParrafo);
+            //padre.appendChild(NewParrafo);
             //padre.appendChild(ElementoCajaDeImagen);
-            padre.appendChild(NewImagen);
-            padre.appendChild(NewFormulario);
+           // padre.appendChild(NewImagen);
+           // padre.appendChild(NewFormulario);
             
     });
 
