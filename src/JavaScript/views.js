@@ -11,6 +11,7 @@ class visualizador{
         this.ContenidoDescripcion=null;
         this.NombreLabel=[];
         this.NombreTituloForm=null;
+        this.NombreBoton='';
     }
     setPantalla1(etiqueta){
         this.Limpiar();
@@ -23,10 +24,11 @@ class visualizador{
                this.ContenidoDescripcion=ElementosContenido[i].ContenidoDescripcion;
                this.NombreTituloForm=ElementosContenido[i].NombreTituloForm;
                this.NombreLabel=ElementosContenido[i].NombreLabel;
-           }
+               this.NombreBoton=ElementosContenido[i].NameBoton;
+            }
 
        }
-       var NewFormulario=GenerarEtiqueta.formulario(this.NombreTituloForm,this.NombreLabel);
+       var NewFormulario=GenerarEtiqueta.formulario(this.NombreTituloForm,this.NombreLabel,this.NombreBoton);
        var NewParrafo=GenerarEtiqueta.CajasParrafos(this.NombreTitulo,this.ContenidoParrafo);
        var NewImagen=GenerarEtiqueta.CajasImagenes(this.rutaimagen,this.ContenidoDescripcion);
        
@@ -96,10 +98,11 @@ class visualizador{
              //  this.ContenidoDescripcion=ElementosContenido[i].ContenidoDescripcion;
                this.NombreTituloForm=ElementosContenido[i].NombreTituloForm;
                this.NombreLabel=ElementosContenido[i].NombreLabel;
-           }
+               this.NombreBoton=ElementosContenido[i].NameBoton;
+            }
     
        }
-       var NewFormulario=GenerarEtiqueta.formulario(this.NombreTituloForm,this.NombreLabel);
+       var NewFormulario=GenerarEtiqueta.formulario(this.NombreTituloForm,this.NombreLabel,this.NombreBoton);
       // var NewParrafo=GenerarEtiqueta.CajasParrafos(this.NombreTitulo,this.ContenidoParrafo);
       // var NewImagen=GenerarEtiqueta.CajasImagenes(this.rutaimagen,this.ContenidoDescripcion);
        
@@ -109,7 +112,7 @@ class visualizador{
         //padre.appendChild(ElementoCajaDeImagen);
     }
    Limpiar(){
-    if(document.querySelector('.'+clase) || clase==!null){
+   /* if(document.querySelector('.'+clase) || clase==!null){
         // padre.removeChild(document.querySelector('.titulo'));
        // padre.removeChild(document.querySelector('.'+clase));
        // padre.removeChild(document.querySelector('.parrafo'));
@@ -117,6 +120,9 @@ class visualizador{
         padre.removeChild(document.querySelector('.CajaParrafo'));
         padre.removeChild(document.querySelector('.CajaFormulario'));
 
+     }*/
+     while (padre.firstChild){
+         padre.removeChild(padre.firstChild);
      }
    }
 }

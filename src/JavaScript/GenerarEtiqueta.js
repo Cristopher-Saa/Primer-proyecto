@@ -1,6 +1,6 @@
 import OpcionesMenu from '../JavaScript/OpcionesMenu.js';
 
- const formulario=(titulo,labels)=>{
+ const formulario=(titulo,labels,titulobtn)=>{
     var CajaFormulario=document.createElement('div');
     CajaFormulario.setAttribute('class','CajaFormulario');
     var Formularios=document.createElement('form');
@@ -30,7 +30,8 @@ import OpcionesMenu from '../JavaScript/OpcionesMenu.js';
     })
     var NewButton=document.createElement('input');
     NewButton.setAttribute('type','button');
-    NewButton.setAttribute('value','Guardar');
+    NewButton.setAttribute('value',titulobtn);
+    CrearEventoBtn(NewButton);
     Formularios.appendChild(NewButton);
     CajaFormulario.appendChild(Formularios);
     return(CajaFormulario);
@@ -49,6 +50,25 @@ function CrearEventosInputs(elemento,evento,evento2){
     });
 
     }
+function CrearEventoBtn(btn){
+    btn.addEventListener('click',(e)=>{
+        if(e.target.value=='Generar'){
+            if(!document.querySelector('.CajaTabla')){
+
+                var filas=document.getElementById('Filas').value;
+            var columnas=document.getElementById('Columnas').value;
+            var titulo=document.getElementById('TituloTabla').value;
+            var newtabla=CrearTablas(filas,columnas,titulo);
+          //  console.log(newtabla);
+            const padre=document.querySelector('.contenedor');
+            padre.appendChild(newtabla);
+
+            }
+            
+        } 
+    });
+
+}
 const CajasParrafos=(titulo,ContenidoParrafo)=>{
     var ElementoCajaDeParrafo=document.createElement('div');
             ElementoCajaDeParrafo.setAttribute('class','CajaParrafo');
@@ -101,4 +121,35 @@ const CrearMenu=()=>{
     CajaMenu.appendChild(ElementoLista);
 
 }
+const CrearTablas=(filas,columnas,titulo)=>{
+   // console.log(filas,+'------>'+columnas);
+    var ElementoCajaTabla=document.createElement('div');
+    ElementoCajaTabla.setAttribute('class','CajaTabla');
+    var ElementoTituloTab=document.createElement('h1');
+    ElementoTituloTab.setAttribute('class','TituloTabla');
+    var contenidoTitulo=document.createTextNode(titulo);
+    ElementoTituloTab.appendChild(contenidoTitulo);
+    var ElementoTabla=document.createElement('table');
+    ElementoTabla.setAttribute('class','tabla');
+    var fil=[],col=[];
+    for (let i=0; i<filas; i++){
+        fil[i]=document.createElement('tr');
+        fil[i].setAttribute('class','fila');
+        ElementoTabla.appendChild(fil[i]);
+    for(let j=0; j<columnas; j++){
+        col[j]=document.createElement('td');
+        col[j].setAttribute('class','columna');
+        fil[i].appendChild(col[j]);
+        
+    }
+    }
+    ElementoCajaTabla.appendChild(ElementoTituloTab);
+    ElementoCajaTabla.appendChild(ElementoTabla);
+    return(ElementoCajaTabla);
+
+}
+
+    
+
+
 export default {formulario,CajasParrafos,CajasImagenes,CrearMenu};

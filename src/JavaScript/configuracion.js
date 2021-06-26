@@ -21,9 +21,9 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
         if(etiqueta.id=='mostrar'){
             view.setPantalla1(etiqueta.id);
         }else if(etiqueta.id=='mostrar1'){
-            view.setPantalla2(etiqueta.id);
+            view.setPantalla1(etiqueta.id);
         }else if(etiqueta.id=='mostrar2'){
-            view.setPantalla3(etiqueta.id);
+            view.setPantalla1(etiqueta.id);
         }else if(etiqueta.id=='mostrar3'){
             view.setPantalla1(etiqueta.id);
         }else if(etiqueta.id=='MostrarTabla'){

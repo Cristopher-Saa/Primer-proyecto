@@ -10,6 +10,7 @@ const opciones={
         //NombreLabel1='Apellido';
         //NombreLabel2='Apodo';
         NombreLabel:['Nombre','Apellido','Apodo'],
+        NameBoton:'Guardar',
     },
     2:{
         id:'mostrar1',
@@ -22,6 +23,7 @@ const opciones={
         NombreLabel1='Color';
         NombreLabel2='Numero';*/
         NombreLabel:['Deporte','Color','Numero'],
+        NameBoton:'Guardar',
     },
     3:{
         id:'mostrar2',
@@ -34,6 +36,7 @@ const opciones={
         NombreLabel1='Celular';
         NombreLabel2='Comida';*/
         NombreLabel:['Edad','Celular','Comida'],
+        NameBoton:'Guardar',
     },
     4:{
         id:'mostrar3',
@@ -46,11 +49,13 @@ const opciones={
         NombreLabel1='Juego';
         NombreLabel2='Direccion';*/
         NombreLabel:['Profesion','Juego','Direccion'],
+        NameBoton:'Guardar',
     },
     5:{
         id:'MostrarTabla',
         NombreLabel:['TituloTabla','Filas','Columnas'],
         NombreTituloForm:'Generar Tablas',
+        NameBoton:'Generar',
     }
 }
 export default {opciones};
