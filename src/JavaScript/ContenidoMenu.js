@@ -56,6 +56,10 @@ const opciones={
         NombreLabel:['TituloTabla','Filas','Columnas'],
         NombreTituloForm:'Generar Tablas',
         NameBoton:'Generar',
+    },
+    6:{
+        id:'MostrarRegistro',
+        Titulo:'Registro'
     }
 }
 export default {opciones};

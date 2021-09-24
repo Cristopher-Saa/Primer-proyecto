@@ -28,6 +28,9 @@ console.log('Hola JavaScript');// equivalente en java a un System.out.println('m
             view.setPantalla1(etiqueta.id);
         }else if(etiqueta.id=='MostrarTabla'){
             view.setPantallaTabla(etiqueta.id);
+        }else if(etiqueta.id=='MostrarRegistro'){
+            view.setPantallaRegistros(etiqueta.id);
+            
         }
        /* var length=Object.keys(ElementosContenido).length;
         for(let i=1;i<=length;i++){

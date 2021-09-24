@@ -111,6 +111,24 @@ class visualizador{
      //  padre.appendChild(NewParrafo);
         //padre.appendChild(ElementoCajaDeImagen);
     }
+
+    setPantallaRegistros(etiqueta){
+        this.Limpiar();
+        var length=Object.keys(ElementosContenido).length;
+        for(let i=1;i<=length;i++){
+           if(etiqueta===ElementosContenido[i].id){
+               this.NombreTitulo=ElementosContenido[i].Titulo;
+               
+            }
+    
+       }
+       console.log(this.NombreTitulo);
+       var NewTabRegistro=GenerarEtiqueta.CrearRegistro(this.NombreTitulo);
+       var NewCajaEstadistica=GenerarEtiqueta.CuadroEstadistica();
+       padre.appendChild(NewTabRegistro);
+       padre.appendChild(NewCajaEstadistica);
+    }
+
    Limpiar(){
    /* if(document.querySelector('.'+clase) || clase==!null){
         // padre.removeChild(document.querySelector('.titulo'));

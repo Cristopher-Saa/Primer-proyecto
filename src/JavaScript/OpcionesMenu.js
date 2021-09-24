@@ -25,6 +25,11 @@ const opciones={
         id:'MostrarTabla'
 
     },
+    6:{
+        Titulo:'Registros',
+        href:'#',
+        id:'MostrarRegistro'
 
+    },
 }
 export default {opciones};
